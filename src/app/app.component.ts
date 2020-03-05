@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {LoginService} from './login.service'
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AdminFrontend';
+  title = 'Biblioteca';
+  isLogin = false;
+  hide = false;
+
+  constructor(private loginServ:LoginService)
+  {
+      this.isLogin = loginServ.isLogin();
+  }
+
+  salir()
+  {
+    this.loginServ.logout();
+    this.isLogin = false;
+  }
 }

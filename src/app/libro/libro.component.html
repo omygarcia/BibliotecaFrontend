@@ -1,0 +1,79 @@
+
+<mat-card class="card-form-libros">
+    <mat-card-header class="bg-green">
+        <mat-card-title>Alta Libros</mat-card-title>
+        <!--<mat-card-subtitle>Dog Breed</mat-card-subtitle>-->
+    </mat-card-header>
+    <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
+    <mat-card-content>
+        <form>
+            <mat-form-field class="example-full-width">
+                <mat-label>Titulo</mat-label>
+                <input matInput placeholder="Titulo del libro" name="titulo" [(ngModel)]="libro.titulo">
+            </mat-form-field>
+            <br />
+            <label>autores</label>
+            <ul>
+                <li *ngFor="let autor of autores">
+                    <mat-checkbox [checked]="true" [value]="autor.id">{{autor.nombre}}</mat-checkbox>
+                </li>
+            </ul>
+            <br />
+            <mat-form-field>
+                <mat-label>Editor</mat-label>
+                <mat-select>
+                    <mat-option *ngFor="let editor of editores" [value]="editor.id">
+                        {{editor.nombre}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-raised-button color="primary" (click)="subir_imagen($event)">
+                Selecciona una Imagen
+                <input type="file" style="opacity:0;top">
+            </button>
+        </form>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="agregarLibro($event)">
+            Agregar
+        </button>
+    </mat-card-actions>
+</mat-card>
+
+
+<table>
+    <thead>
+        <tr>
+            <th>Titulo</th>
+            <th>Autor</th>
+            <th>Editor</th>
+            <th>Fecha</th>
+            <th>Portada</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody *ngFor="let libro of libros">
+        <tr>
+            <td>{{libro.titulo}}</td>
+            <td>
+                <div *ngFor="let autor of libro.autores">
+                    {{autor.nombre}}
+                </div>
+            </td>
+            <td>{{libro.editor.nombre}}</td>
+            <td>{{libro.fecha_publicacion}}</td>
+            <td><img src="{{libro.portada}}" style="width:100px;" /></td>
+            <td>
+                <button mat-raised-button color="warn">Eliminar</button>
+                <button mat-raised-button color="primary" (click)="seleccionarLibro($event,libro)">Seleccionar</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<mat-slider min="1" max="100" step="1" value="1"></mat-slider>
