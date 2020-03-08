@@ -17,7 +17,7 @@
     <mat-toolbar color="primary">
         <mat-toolbar-row>
             {{title}}
-            <nav>
+            <nav *ngIf="isLogin">
                 <a mat-raised-button color="primary" routerLink="/admin/dashboard">Panel</a>
                 <a mat-raised-button color="primary" routerLink="/admin/libro">Libro</a>
                 <a mat-raised-button color="primary" routerLink="/admin/autor">Autor</a>

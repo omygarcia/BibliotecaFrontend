@@ -6,6 +6,7 @@ import {DashboardComponent} from './dashboard/dashboard.component';
 import {LibroComponent} from './libro/libro.component';
 import {AutorComponent} from './autor/autor.component';
 import {EditorComponent} from './editor/editor.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path:"admin/libro",component:LibroComponent},
   {path:"admin/autor",component:AutorComponent},
   {path:"admin/editor",component:EditorComponent},
+  {path:"**",component:PageNotFoundComponent},
 ];
 
 @NgModule({

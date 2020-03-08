@@ -16,6 +16,11 @@ export class LibroService {
     return this.http.get(this.ruta);
   }
 
+  filtarLibrosByTitulo(titulo:string):Observable<any>
+  {
+    return this.http.get(this.ruta+"?titulo="+titulo);
+  }
+
   agregarLibro(libro:any)
   {
     let json = JSON.stringify(libro);

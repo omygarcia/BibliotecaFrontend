@@ -46,6 +46,15 @@ export class LibroComponent implements OnInit {
     });
   }
 
+  filtrarPorTitulo(buscar)
+  {
+    this.libroServ.filtarLibrosByTitulo(buscar).subscribe((resp)=>{
+      this.libros = resp;
+     },(error)=>{
+       console.log(error);
+     });
+  }
+
   obtenerAutores()
   {
     this.autorServ.obtenerTodosLosAutores().subscribe(resultado=>{

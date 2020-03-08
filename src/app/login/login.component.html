@@ -5,7 +5,7 @@
     <mat-card-content>
         <mat-form-field>
             <mat-label>Usuario</mat-label>
-            <input matInput placeholder="usuario" [(ngModel)]="user.usuario">
+            <input matInput placeholder="usuario" [(ngModel)]="user.username">
         </mat-form-field>
         <br />
         <mat-form-field>
@@ -17,6 +17,8 @@
         </mat-form-field>
         <br />
         <button mat-raised-button color="primary" (click)="Ingresar()">Ingresar</button>
+        <br />
+        <img *ngIf="progressVisible" src="assets/img/ajax-loader.gif" />
     </mat-card-content>
 </mat-card>
 

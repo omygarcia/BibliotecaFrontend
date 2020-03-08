@@ -26,7 +26,8 @@ import {MatNativeDateModule, MatRippleModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
 import { AutorComponent } from './autor/autor.component';
 import { EditorComponent } from './editor/editor.component';
-import { DashboardComponent } from './dashboard/dashboard.component'
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component'
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { DashboardComponent } from './dashboard/dashboard.component'
     LibroComponent,
     AutorComponent,
     EditorComponent,
-    DashboardComponent
+    DashboardComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
